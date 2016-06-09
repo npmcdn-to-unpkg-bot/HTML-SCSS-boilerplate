@@ -3,8 +3,8 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create(),
     runSequence = require('run-sequence'),
     del = require('del');
-var config = require('./gulp-config.js')();
 
+var config = require('./gulp-config.json');
 
 // Styles
 gulp.task('styles', function() {
@@ -47,6 +47,31 @@ gulp.task('fonts', function() {
 gulp.task('clean', function() {
     return del.sync('dist');
 });
+
+//gulp svg sprite
+svgConfig = {
+    shape: {
+        dimension: { // Set maximum dimensions
+            maxWidth: 32,
+            maxHeight: 32
+        },
+        spacing: { // Add padding
+            padding: 10
+        }
+    },
+    mode: {
+        view:false,
+        symbol: {
+          dest:'./'
+        }
+    }
+};
+
+gulp.task('svg-sprite', function() {
+      return gulp.src(config.svgIn)
+        .pipe($.svgSprite(svgConfig))
+        .pipe(gulp.dest(config.svgOut));
+})
 
 // browserSync
 gulp.task('browserSync', function() {

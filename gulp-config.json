@@ -1,0 +1,11 @@
+{
+    "cssIncludes": [
+        "node_modules/normalize.css/normalize.css"
+    ],
+    "index": "index.html",
+    "jsIncludes": [],
+    "jsFiles": [],
+    "mainCss": [],
+    "svgIn": "src/assets/svg/*.svg",
+    "svgOut": "src/assets/"
+}
