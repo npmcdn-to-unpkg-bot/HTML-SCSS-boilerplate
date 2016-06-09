@@ -2,9 +2,12 @@
     "cssIncludes": [
         "node_modules/normalize.css/normalize.css"
     ],
+    "fontsSrc": "src/assets/fonts/**/*.*",
+    "imageSrc": "src/assets/images/**/*.*",
+    "imageDest": "build/assets/images/",
     "index": "index.html",
-    "jsIncludes": [],
     "jsFiles": [],
+    "jsIncludes": [],
     "mainCss": [],
     "svgIn": "src/assets/svg/*.svg",
     "svgOut": "src/assets/"

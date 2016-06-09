@@ -6,6 +6,13 @@ var browserSync = require('browser-sync').create(),
 
 var config = require('./gulp-config.json');
 
+
+// Clean
+gulp.task('clean', function() {
+    return del.sync('dist');
+});
+
+
 // Styles
 gulp.task('styles', function() {
     return gulp.src('src/styles/sass/**/*.scss')
@@ -24,13 +31,13 @@ gulp.task('styles', function() {
 
 // Images
 gulp.task('images', function() {
-    return gulp.src('src/images/**/*')
+    return gulp.src(config.imageSrc)
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
             progressive: true,
             interlaced: true
         })))
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest(config.imageDest))
         .pipe($.notify({
             message: 'Images task complete'
         }))
@@ -40,13 +47,9 @@ gulp.task('images', function() {
 });
 
 gulp.task('fonts', function() {
-        return gulp.src('src/styles/fonts/**/*')
-            .pipe(gulp.dest('dist/styles/fonts'))
-    })
-    // Clean
-gulp.task('clean', function() {
-    return del.sync('dist');
-});
+    return gulp.src('src/styles/fonts/**/*')
+        .pipe(gulp.dest('dist/styles/fonts'))
+})
 
 //gulp svg sprite
 svgConfig = {
@@ -60,15 +63,15 @@ svgConfig = {
         }
     },
     mode: {
-        view:false,
+        view: false,
         symbol: {
-          dest:'./'
+            dest: './'
         }
     }
 };
 
 gulp.task('svg-sprite', function() {
-      return gulp.src(config.svgIn)
+    return gulp.src(config.svgIn)
         .pipe($.svgSprite(svgConfig))
         .pipe(gulp.dest(config.svgOut));
 })
@@ -103,5 +106,5 @@ gulp.task('run', ['browserSync', 'styles'], function() {
 
 // Default task
 gulp.task('default', function() {
-    runSequence(['styles', 'browserSync']);
+    console.log()
 });
