@@ -8,7 +8,8 @@
     "index": "index.html",
     "jsFiles": [],
     "jsIncludes": [],
-    "mainCss": [],
+    "mainScss": "src/style/main.scss",
+    "destCss": "src/style/css/",
     "svgIn": "src/assets/svg/*.svg",
     "svgOut": "src/assets/"
 }

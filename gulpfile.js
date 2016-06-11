@@ -15,12 +15,12 @@ gulp.task('clean', function() {
 
 // Styles
 gulp.task('styles', function() {
-    return gulp.src('src/styles/sass/**/*.scss')
+    return gulp.src(config.mainScss)
         .pipe($.sass({
             outputStyle: 'expanded'
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer('last 2 version'))
-        .pipe(gulp.dest('src/styles/css'))
+        .pipe(gulp.dest(config.destCss))
         .pipe($.notify({
             message: 'Styles task complete'
         }))
