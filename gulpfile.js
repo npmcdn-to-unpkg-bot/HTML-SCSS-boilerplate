@@ -2,7 +2,8 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create(),
     runSequence = require('run-sequence'),
-    del = require('del');
+    del = require('del'),
+    vinylPaths = require('vinyl-paths');
 
 var config = require('./gulp-config.json');
 
@@ -103,12 +104,6 @@ gulp.task('run', ['browserSync', 'styles'], function() {
 });
 
 
-
-// Default task
-gulp.task('default', function() {
-    console.log()
-});
-
 gulp.task('concatIncludes', function() {
   return gulp.src(config.jsIncludes)
     .pipe($.concat('includes.js'))
@@ -120,8 +115,8 @@ gulp.task('concatMain', function() {
     .pipe(gulp.dest(config.temp + '/js'));
 });
 gulp.task('compressJS', ['concatIncludes', 'concatMain'] ,function() {
-    return gulp.src(config.temp + '/js')
+    return gulp.src(config.temp + 'js/*.js')
     .pipe($.concat('build.js'))
     .pipe($.uglify())
-    .pipe(gulp.dest(config.build));
+    .pipe(gulp.dest(config.build+'script/'));
 });
