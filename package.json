@@ -38,7 +38,7 @@
     "run-sequence": "^1.2.1"
   },
   "dependencies": {
-    "jquery": "^2.2.4",
+    "jquery": "^3.0.0",
     "normalize.css": "^4.1.1"
   }
 }

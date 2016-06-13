@@ -6,8 +6,12 @@
     "imageSrc": "src/assets/images/**/*.*",
     "imageDest": "build/assets/images/",
     "index": "index.html",
-    "jsFiles": [],
-    "jsIncludes": [],
+    "jsFiles": [
+      "src/scripts/main.js"
+    ],
+    "jsIncludes": [
+      "node_modules/jquery/dist/jquery.min.js"
+    ],
     "mainScss": "src/style/main.scss",
     "destCss": "src/style/css/",
     "svgIn": "src/assets/svg/*.svg",
