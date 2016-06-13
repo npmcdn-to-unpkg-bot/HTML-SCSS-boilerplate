@@ -15,19 +15,21 @@ gulp.task('clean', function() {
 
 
 // Styles
-gulp.task('styles', function() {
+gulp.task('compileSCSS', function() {
     return gulp.src(config.mainScss)
+        .pipe($.sourcemaps.init())
         .pipe($.sass({
-            outputStyle: 'expanded'
-        }).on('error', $.sass.logError))
+                sourceComments: 'map',
+                sourceMap: 'sass',
+                outputStyle: 'expanded'
+            })
+            .on('error', $.sass.logError))
         .pipe($.autoprefixer('last 2 version'))
+        .pipe($.sourcemaps.write('maps'))
         .pipe(gulp.dest(config.destCss))
-        .pipe($.notify({
-            message: 'Styles task complete'
-        }))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
+        // .pipe(browserSync.reload({
+        //     stream: true
+        // }));
 });
 
 // Images
@@ -105,18 +107,28 @@ gulp.task('run', ['browserSync', 'styles'], function() {
 
 
 gulp.task('concatIncludes', function() {
-  return gulp.src(config.jsIncludes)
-    .pipe($.concat('includes.js'))
-    .pipe(gulp.dest(config.temp + '/js'));
+    return gulp.src(config.jsIncludes)
+        .pipe($.sourcemaps.init())
+        .pipe($.concat('includes.js'))
+        .pipe($.uglify())
+        .pipe($.sourcemaps.write('maps'))
+        .pipe(gulp.dest(config.temp + '/js'));
 });
 gulp.task('concatMain', function() {
-  return gulp.src(config.jsIncludes)
-    .pipe($.concat('main.js'))
-    .pipe(gulp.dest(config.temp + '/js'));
+    return gulp.src(config.jsFiles)
+        .pipe($.sourcemaps.init())
+        .pipe($.concat('main.js'))
+        .pipe($.uglify())
+        .pipe($.sourcemaps.write('maps'))
+        .pipe(gulp.dest(config.temp + '/js'));
 });
-gulp.task('compressJS', ['concatIncludes', 'concatMain'] ,function() {
+gulp.task('compressJS', ['concatIncludes', 'concatMain'], function() {
     return gulp.src(config.temp + 'js/*.js')
-    .pipe($.concat('build.js'))
-    .pipe($.uglify())
-    .pipe(gulp.dest(config.build+'script/'));
+        .pipe($.concat('build.js'))
+        .pipe(gulp.dest(config.build + 'script/'));
 });
+gulp.task('compressCSS', ['compileSCSS'], function() {
+    return gulp.src(config.destCss + '*.css')
+        .pipe($.csso())
+        .pipe(gulp.dest(config.build + 'style/'));
+})

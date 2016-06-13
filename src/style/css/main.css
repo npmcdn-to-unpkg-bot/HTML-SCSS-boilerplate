@@ -1,3 +1,22 @@
+/* line 1, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
 body {
   background: #f1f1f1;
 }
+
+/* line 3, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
+body h1 {
+  color: #000;
+}
+
+/* line 6, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
+body svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* line 9, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
+body svg * {
+  fill: #555;
+}
+
+/*# sourceMappingURL=maps/main.css.map */
