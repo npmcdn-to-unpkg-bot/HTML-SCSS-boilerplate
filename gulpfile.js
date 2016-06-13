@@ -108,3 +108,20 @@ gulp.task('run', ['browserSync', 'styles'], function() {
 gulp.task('default', function() {
     console.log()
 });
+
+gulp.task('concatIncludes', function() {
+  return gulp.src(config.jsIncludes)
+    .pipe($.concat('includes.js'))
+    .pipe(gulp.dest(config.temp + '/js'));
+});
+gulp.task('concatMain', function() {
+  return gulp.src(config.jsIncludes)
+    .pipe($.concat('main.js'))
+    .pipe(gulp.dest(config.temp + '/js'));
+});
+gulp.task('compressJS', ['concatIncludes', 'concatMain'] ,function() {
+    return gulp.src(config.temp + '/js')
+    .pipe($.concat('build.js'))
+    .pipe($.uglify())
+    .pipe(gulp.dest(config.build));
+});

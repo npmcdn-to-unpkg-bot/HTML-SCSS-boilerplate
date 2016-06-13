@@ -1,4 +1,5 @@
 {
+    "build":"build/",
     "cssIncludes": [
         "node_modules/normalize.css/normalize.css"
     ],
@@ -14,6 +15,7 @@
     ],
     "mainScss": "src/style/main.scss",
     "destCss": "src/style/css/",
+    "temp":"temp/",
     "svgIn": "src/assets/svg/*.svg",
     "svgOut": "src/assets/"
 }
