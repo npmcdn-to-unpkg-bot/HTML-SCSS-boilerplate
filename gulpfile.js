@@ -34,7 +34,7 @@ gulp.task('compileSCSS', function() {
 
 // Images
 gulp.task('images', function() {
-    return gulp.src(config.imageSrc)
+    return gulp.src(config.imageSrc, {base:'src/'})
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
             progressive: true,
@@ -49,9 +49,9 @@ gulp.task('images', function() {
         }));
 });
 
-gulp.task('fonts', function() {
-    return gulp.src('src/styles/fonts/**/*')
-        .pipe(gulp.dest('dist/styles/fonts'))
+gulp.task('copyFonts', function() {
+    return gulp.src(config.fontsSrc, {base:'src/'})
+        .pipe(gulp.dest(config.build))
 })
 
 //gulp svg sprite
@@ -134,14 +134,15 @@ gulp.task('compressCSS', ['compileSCSS'], function() {
 })
 
 gulp.task('compressHTML', function() {
-  return gulp.src('src/*.html')
-    .pipe($.htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(config.build))
+    return gulp.src('src/*.html')
+        .pipe($.htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest(config.build))
 });
 
 
 gulp.task('build', function(callback) {
-  runSequence('clean',
-              ['compressJS', 'compressCSS', 'compressHTML'],
-              callback);
+    runSequence('clean', ['compressJS', 'compressCSS', 'compressHTML', 'images', 'copyFonts'],
+        callback);
 });
