@@ -10,7 +10,7 @@ var config = require('./gulp-config.json');
 
 // Clean
 gulp.task('clean', function() {
-    return del.sync('dist');
+    return del.sync('build');
 });
 
 
@@ -132,3 +132,16 @@ gulp.task('compressCSS', ['compileSCSS'], function() {
         .pipe($.csso())
         .pipe(gulp.dest(config.build + 'style/'));
 })
+
+gulp.task('compressHTML', function() {
+  return gulp.src('src/*.html')
+    .pipe($.htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(config.build))
+});
+
+
+gulp.task('build', function(callback) {
+  runSequence('clean',
+              ['compressJS', 'compressCSS', 'compressHTML'],
+              callback);
+});
