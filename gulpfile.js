@@ -8,6 +8,10 @@ var browserSync = require('browser-sync').create(),
 var config = require('./gulp-config.json');
 
 
+function getDevTask(filename) {
+  return require('./gulp/tasks/developement/' + filename + '.js')(gulp, plugins, log, config);
+}
+
 // Clean
 gulp.task('clean', function() {
     return del.sync('build');
