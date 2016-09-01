@@ -1,13 +1,42 @@
-body{
-  background: #f1f1f1;
-  h1{
-    color: #000;
-  }
-  svg{
-    width: 20px;
-    height: 20px;
-    *{
-      fill: #555;
+body {
+    margin : 0;
+    padding: 0;
+}
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+$names : (name, age, sex, fuck);
+@each $i in $names {
+    .#{$i} {
+        background: #fff;
     }
-  }
+}
+@each $p in (
+    one blue,
+    two blue + 20,
+    three blue + 40,
+    four blue + 60
+) {
+    .#{nth($p,1)}{
+        background: #{nth($p,2)};
+    }
+}
+
+@for $i from 1 through 10 {
+    .par-#{$i}{
+        margin: 10px * $i;
+    }
+}
+$i:1;
+@while $i < 10 {
+    .cc-#{#i}{
+        margin-right: 100px * $i;
+    }
+    $i:$i+1;
 }

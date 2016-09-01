@@ -31,9 +31,9 @@ gulp.task('compileSCSS', function() {
         .pipe($.autoprefixer('last 2 version'))
         .pipe($.sourcemaps.write('maps'))
         .pipe(gulp.dest(config.destCss))
-        // .pipe(browserSync.reload({
-        //     stream: true
-        // }));
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 // Images
@@ -94,10 +94,10 @@ gulp.task('browserSync', function() {
 
 
 // Watch
-gulp.task('run', ['browserSync', 'styles'], function() {
+gulp.task('run', ['browserSync', 'compileSCSS'], function() {
 
     // Watch .scss files
-    gulp.watch('src/styles/**/*.scss', ['styles']);
+    gulp.watch('src/style/**/*.scss', ['compileSCSS']);
 
     // Watch .js files
     gulp.watch('src/scripts/**/*.js', browserSync.reload);

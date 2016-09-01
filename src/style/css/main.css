@@ -1,22 +1,154 @@
-/* line 1, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
+/* line 1, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
 body {
-  background: #f1f1f1;
+  margin: 0;
+  padding: 0;
 }
 
-/* line 3, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
-body h1 {
-  color: #000;
+/* line 5, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.chart rect {
+  fill: steelblue;
 }
 
-/* line 6, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
-body svg {
-  width: 20px;
-  height: 20px;
+/* line 9, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
 }
 
-/* line 9, /home/moidmw/Projects/the-night-job/src/style/scss/_index.scss */
-body svg * {
-  fill: #555;
+/* line 16, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.name {
+  background: #fff;
+}
+
+/* line 16, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.age {
+  background: #fff;
+}
+
+/* line 16, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.sex {
+  background: #fff;
+}
+
+/* line 16, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.fuck {
+  background: #fff;
+}
+
+/* line 26, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.one {
+  background: blue;
+}
+
+/* line 26, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.two {
+  background: #1414ff;
+}
+
+/* line 26, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.three {
+  background: #2828ff;
+}
+
+/* line 26, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.four {
+  background: #3c3cff;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-1 {
+  margin: 10px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-2 {
+  margin: 20px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-3 {
+  margin: 30px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-4 {
+  margin: 40px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-5 {
+  margin: 50px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-6 {
+  margin: 60px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-7 {
+  margin: 70px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-8 {
+  margin: 80px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-9 {
+  margin: 90px;
+}
+
+/* line 32, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.par-10 {
+  margin: 100px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 100px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 200px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 300px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 400px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 500px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 600px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 700px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 800px;
+}
+
+/* line 38, /mnt/D438E3BC38E39BAC/Development/projects/the-night-job/src/style/scss/_index.scss */
+.cc-#i {
+  margin-right: 900px;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
